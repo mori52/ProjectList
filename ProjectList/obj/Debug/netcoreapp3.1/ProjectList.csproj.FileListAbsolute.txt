@@ -1,0 +1,9 @@
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/bin/Debug/netcoreapp3.1/ProjectList.deps.json
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/bin/Debug/netcoreapp3.1/ProjectList.dll
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/bin/Debug/netcoreapp3.1/ProjectList.pdb
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/obj/Debug/netcoreapp3.1/ProjectList.AssemblyInfoInputs.cache
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/obj/Debug/netcoreapp3.1/ProjectList.AssemblyInfo.cs
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/obj/Debug/netcoreapp3.1/ProjectList.csproj.CoreCompileInputs.cache
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/obj/Debug/netcoreapp3.1/ProjectList.dll
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/obj/Debug/netcoreapp3.1/ProjectList.pdb
+/Users/mariacvetkova/Projects/ProjectList/ProjectList/obj/Debug/netcoreapp3.1/ProjectList.csprojAssemblyReference.cache
