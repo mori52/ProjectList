@@ -207,6 +207,7 @@ namespace ProjectList
                 if (_array[i]==x)
                 {
                     index = i;
+                    break;
                 }
             }
 
@@ -245,7 +246,7 @@ namespace ProjectList
 
             for (int i=0; i<_array.Length; i++)
             {
-                if (maxValue>=_array[i])
+                if (maxValue < _array[i])
                 {
                     maxValue = _array[i];
                 }
@@ -262,7 +263,7 @@ namespace ProjectList
 
             for (int i = 0; i < _array.Length; i++)
             {
-                if (minValue <= _array[i])
+                if (minValue > _array[i])
                 {
                     minValue = _array[i];
                 }
@@ -277,9 +278,9 @@ namespace ProjectList
             int maxValue = _array[0];
             int indexOfMaxValue = 0;
 
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Length; i++)
             {
-                if (maxValue >= _array[i])
+                if (maxValue <= _array[i])
                 {
                     maxValue = _array[i];
                     indexOfMaxValue = i;
@@ -295,9 +296,9 @@ namespace ProjectList
             int minValue = _array[0];
             int indexOfMinValue = 0;
 
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Length; i++)
             {
-                if (minValue >= _array[i])
+                if (minValue > _array[i])
                 {
                     minValue = _array[i];
                     indexOfMinValue = i;
@@ -310,9 +311,9 @@ namespace ProjectList
         {
             //19. Сортировка по возрастанию
 
-            for (int i =0; i<_array.Length; i++)
+            for (int i = 0; i < Length; i++)
             {
-                for (int j = i+1; j<_array.Length; j++)
+                for (int j = i + 1; j < Length; j++)
                 {
                     if (_array[i] > _array[j])
                     {
@@ -322,15 +323,16 @@ namespace ProjectList
                     }
                 }
             }
+
         }
 
         public void SortingByDecrease()
         {
             //20. Сортировка по убыванию
 
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < Length; i++)
             {
-                for (int j = i + 1; j < _array.Length; j++)
+                for (int j = i + 1; j < Length; j++)
                 {
                     if (_array[i] < _array[j])
                     {
@@ -344,79 +346,72 @@ namespace ProjectList
 
         public int RemoveElementX(int x)
         {
-            //21. Удаление по значению первого
+            //21. Удаление по значению первого --> вернуть его индекс
 
-            int index = 0;
+            int a = GetIndexOfElement(x);
+            RemoveElementByIndex(a);
+            return a;
 
-            for (int i = 0; i < _array.Length; i++)
-            {
-                while (_array[i] != x)
-                {
-                    _array[i] = _array[i];
-                    index++;
-                    break;
-                }
-                _array[i] = _array[i + 1];
-                break;
-            }
-
-            return index;
         }
+
+
 
         public int RemoveAllElementsX(int x)
         {
-            //22. Удаление по значению всех
+            //22. Удаление по значению всех --> вернуть их количество
 
-            int sumOfValue = 0;
+            int kol = 0;
 
             for (int i = 0; i < Length; i++)
             {
-                //// НИЧЕГО НЕ ВЫШЛО ПОПРОБУЙ ЕЩЕ РАЗ ГОСПОДИ БОЖЕ
-
-                if (_array[i] == x)
-                {
-                    for (int j = Length - 1; j >= 0; j--)
-                    {
-                        _array[j + 1] = _array[j];
-                    }
-                }
-                //удалить последний
-                //_array.Length--;
-
-                i--;
-                sumOfValue++;
+                
+                int a = GetIndexOfElement(x);
+                RemoveElementByIndex(a); 
+                kol++;
+                
             }
 
-            return sumOfValue;
+
+            return kol;
 
         }
 
 
 
-        public void AddList()
-        {
-            //24. добавление списка(вашего самодельного) в конец
+        //public void AddList(ArrayList newList)
+        //{
+        //    //24. добавление списка(вашего самодельного) в конец
+
+        //    for (int i = 0; i < newList.Length; i++)
+        //    {
+        //        Add(newList[i]);
+        //        Add(newList._array[i]);
+        //    }
+
+        //public void AddListToTheBegin(ArrayList newList)
+        //{
+        //    //25. добавление списка в начало
+
+        //    for (int i = 0; i < newList.Length; i++)
+        //    {
+        //        Add(newList[i]);
+        //        Add(newList._array[0]);
+        //    }
+
+        //}
+
+        //public void AddListByIndex()
+        //{
+        //    //26. добавление списка по индексу
+        //}
 
 
-        }
-
-        public void AddListToTheBegin()
-        {
-            //25. добавление списка в начало
-        }
-
-        public void AddListByIndex()
-        {
-            //26. добавление списка по индексу
-        }
 
 
-
-
-        public override string ToString()
-        {
-            return string.Join(";", _array.Take(Length));
-        }
+        //public override string ToString()
+        //{
+        //    return string.Join(";", _array.Take(Length));
+        //}
 
         public override bool Equals(object obj)
         {
@@ -460,6 +455,34 @@ namespace ProjectList
                 tmpArray[i] = _array[i];
             }
             _array = tmpArray;
+        }
+
+        private void ReturnTheError(int index)
+        {
+            // Вызов ошибки IndexOutOfRangeException
+
+            if (index > _array.Length || index < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+        }
+
+        private void MakeArrayToLeft(int index, int n)
+        {
+            //Сдвиг массив на n позиций влево
+            for (int i = Length; i > index; i--)
+            {
+                _array[i] = _array[i-n];
+            }
+        }
+
+        private void MakeArrayToRight(int index, int n)
+        {
+            //Сдвиг массив на n позиций вправо
+            for (int i = index; i < Length - n; i++)
+            {
+                _array[i] = _array[i + n];
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{924F741E-B701-410B-AC75-CE4235027FDB}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="ProjectList/List.cs">
     <Files>
-      <File FileName="ProjectList/List.cs" Line="375" Column="1" />
-      <File FileName="ProjectListTests/UnitTest1.cs" />
+      <File FileName="ProjectList/List.cs" Line="65" Column="14" />
+      <File FileName="ProjectListTests/UnitTest1.cs" Line="224" Column="64" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,19 +12,6 @@
               <Node name="List.cs" selected="True" />
             </Node>
             <Node name="ProjectListTests" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="ProjectList" expanded="True">
-            <Node name="ProjectListTests" expanded="True">
-              <Node name="ProjectListTests" expanded="True">
-                <Node name="ListsTests" expanded="True">
-                  <Node name="RemoveElementXTest([1, 2, 3, 3, 3, ...],2,1)" selected="True" />
-                </Node>
-              </Node>
-            </Node>
           </Node>
         </State>
       </Pad>

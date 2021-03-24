@@ -109,8 +109,8 @@ namespace ProjectListTests
         [TestCase(new int[] { 58, 1, 212, 3, 412 }, 3, 3)]
         public void GetElementByIndexTest(int[] inputArray, int index, int expected)
         {
-            ArrayList actual = new ArrayList(inputArray);
-            actual.GetElementByIndex(index);
+            ArrayList list = new ArrayList(inputArray);
+            int actual = list.GetElementByIndex(index);
             Assert.AreEqual(expected, actual);
         }
 
@@ -119,8 +119,8 @@ namespace ProjectListTests
         [TestCase(new int[] { 58, 1, 212, 3, 412 }, 3, 3)]
         public void GetIndexOfElementTest(int[] inputArray, int x, int expected)
         {
-            ArrayList actual = new ArrayList(inputArray);
-            actual.GetIndexOfElement(x);
+            ArrayList list = new ArrayList(inputArray);
+            int actual = list.GetIndexOfElement(x);
             Assert.AreEqual(expected, actual);
         }
 
@@ -148,42 +148,42 @@ namespace ProjectListTests
 
         [TestCase(new int[] { 1, 2, 3, 3, 3, 4 }, 4)]
         [TestCase(new int[] { 1, 2, 356, 2, 2, 4 }, 356)]
-        [TestCase(new int[] { 58, 1, 212, 3, 412 }, 212)]
+        [TestCase(new int[] { 58, 1, 412, 3, 412 }, 412)]
         public void SearchMaxValueTest(int[] inputArray, int expected)
         {
-            ArrayList actual = new ArrayList(inputArray);
-            actual.SearchMaxValue();
+            ArrayList list = new ArrayList(inputArray);
+            int actual = list.SearchMaxValue();
             Assert.AreEqual(expected, actual);
         }
 
-        [TestCase(new int[] { 1, 2, 3, 3, 3, 4 }, 1)]
+        [TestCase(new int[] { -1, 2, 3, 3, 3, 4 }, -1)]
         [TestCase(new int[] { 1, 2, -356, 2, 2, 4 }, -356)]
-        [TestCase(new int[] { 58, 1, 212, 3, 412 }, 1)]
+        [TestCase(new int[] { 58, 1, -212, 3, 412 }, -212)]
         public void SearchMinValueTest(int[] inputArray, int expected)
         {
-            ArrayList actual = new ArrayList(inputArray);
-            actual.SearchMinValue();
+            ArrayList list = new ArrayList(inputArray);
+            int actual = list.SearchMinValue();
             Assert.AreEqual(expected, actual);
         }
 
         
-        [TestCase(new int[] { 1, 2, 3, 3, 3, 4 }, 5)]
+        [TestCase(new int[] { 1, 2, 2, 4, 6, 8, 2}, 5)]
         [TestCase(new int[] { 1, 2, 356, 2, 2, 4 }, 2)]
         [TestCase(new int[] { 58, 1, 212, 3, 412 }, 4)]
         public void SearchIndexOfMaxValueTest(int[] inputArray, int expected)
         {
-            ArrayList actual = new ArrayList(inputArray);
-            actual.SearchIndexOfMaxValue();
+            ArrayList list = new ArrayList(inputArray);
+            int actual = list.SearchIndexOfMaxValue();
             Assert.AreEqual(expected, actual);
         }
 
-        [TestCase(new int[] { 1, 2, 3, 3, 3, 4 }, 0)]
+        [TestCase(new int[] { 2, 2, 3, -121, 3, 4 }, 3)]
         [TestCase(new int[] { 1, 2, -356, 2, 2, 4 }, 2)]
-        [TestCase(new int[] { 58, 1, 212, 3, 412 }, 1)]
+        [TestCase(new int[] { 58, -11, 212, 3, 412 }, 1)]
         public void SearchIndexOfMinValueTest(int[] inputArray, int expected)
         {
-            ArrayList actual = new ArrayList(inputArray);
-            actual.SearchIndexOfMinValue();
+            ArrayList list = new ArrayList(inputArray);
+            int actual = list.SearchIndexOfMinValue();
             Assert.AreEqual(expected, actual);
         }
 
@@ -214,18 +214,18 @@ namespace ProjectListTests
         [TestCase(new int[] { 58, 1, 212, 3, 412 }, 3, 3)]
         public void RemoveElementXTest(int[] inputArray, int x, int expected)
         {
-            ArrayList actual = new ArrayList(inputArray);
-            actual.RemoveElementX(x);
+            ArrayList list = new ArrayList(inputArray);
+            int actual = list.RemoveElementX(x);
             Assert.AreEqual(expected, actual);
         }
 
         [TestCase(new int[] { 1, 2, 3, 3, 3, 4 }, 3, 3)]
         [TestCase(new int[] { 1, 2, -356, 2, 2, 4 }, 2, 3)]
-        [TestCase(new int[] { 58, 1, 212, 3, 412 }, 212, 1)]
+        [TestCase(new int[] { 58, 1, 212, 3, 212, 212 }, 212, 3)]
         public void RemoveAllElementsXTest(int[] inputArray, int x, int expected)
         {
-            ArrayList actual = new ArrayList(inputArray);
-            actual.RemoveAllElementsX(x);
+            ArrayList list = new ArrayList(inputArray);
+            int actual = list.RemoveAllElementsX(x);
             Assert.AreEqual(expected, actual);
         }
     }
